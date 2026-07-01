@@ -1,0 +1,31 @@
+body,html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+.calculator{
+    display: flex;
+    flex-direction: column;
+}
+.buttons{
+    display: flex;
+}
+.numbers button{
+    width:30%;
+    box-sizing: border-box;
+    height:60px ;
+}
+.operators button{
+    width: 100%;
+    height:60px;
+}
+.numbers .equal{
+    width: 100%;
+}
+.display{
+    width: 100%;
+    height: 50px;
+}
