@@ -24,14 +24,14 @@ let html={firstnum:null,
     secondnum:null ,
     operate: null
 };
-document.querySelectorAll('button').forEach(e=> e.addEventListener('click',(e)=>{assigner(e.id)}))
+document.querySelectorAll('button').forEach(e=> e.addEventListener('click',(e)=>{assigner(e.target.id)}))
 
 function assigner(element){
 if ((element=='+'||element=='-'||element=='*'||element=='/') && html.operate===null )
     html.operate=element;
 
 
-else if(!(element=='=') ){
+else if(element!=='=' ){
     if (html.firstnum===null )
         html.firstnum=element;
     else if(html.operate==null)
@@ -39,9 +39,9 @@ else if(!(element=='=') ){
     else if(html.secondnum===null)
         html.secondnum=element;
     else
-        html.secondnum=+element;
+        html.secondnum+=element;
 }
-else if(element=='equal' && html.firstnum && html.secondnum ){
+else if(element=='=' && html.firstnum && html.secondnum ){
     operator(html);
     
 }
@@ -66,6 +66,7 @@ else if(object.operate=='-'){
 }
 else if(object.operate=='/'){
     result=divide(object.firstnum,object.secondnum);
+    html.firstnum=result;
     html.secondnum=null;
     html.operate=null;
 }
